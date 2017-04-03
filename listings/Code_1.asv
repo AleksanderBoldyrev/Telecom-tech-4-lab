@@ -1,11 +1,11 @@
 
-A_M = 1;                                    
-OMEGA = 100;                          
-Ws = 100000;                                 
+A_M = 0.5;                                    
+OMEGA = 2;                          
+Ws = 10000;                                 
 Fs = Ws/(2*pi);                             
 T = 1/Fs;   
 % 5*2*pi/OMEGA
-t = [0:T:5*2*pi/OMEGA];                    
+t = [0:T:10];                    
 s_M = A_M*cos(OMEGA*t);                     
 
 figure
@@ -23,7 +23,7 @@ ylim([0 5000]);
 % AM-signal
 
 A0=1;                                      
-omega0 = 1500;                               
+omega0 = 1000;                               
 phi0 = 0;                                   
 s_AM = ammod(s_M, OMEGA, omega0, phi0, A0); 
 
@@ -48,7 +48,6 @@ plot(t, s_AM, '--', t, z);
 
 figure                                      
 specplot(z, Fs); 
-
 % KPD
 
 x = [0.1:0.2:10];  
@@ -68,7 +67,6 @@ s_AM_SC = ammod(s_M, Fc, Fs);
 
 figure
 plot(t, s_AM_SC);
-xlim([0 0.1]);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
